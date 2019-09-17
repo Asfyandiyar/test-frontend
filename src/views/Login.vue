@@ -87,11 +87,8 @@
             	(user.password === $this.password));
 
             if(users.length !== 0) {
-	            const role = users[0].role;
-	            if(role === 'teacher') 
-	    			this.$router.push("/teacher");
-		    	else if(role === 'student') 
-		    		this.$router.push("/student");
+	            const role = users[0].role; 
+	    		this.$router.push("/"+role);
 	    	}
             
     	}
