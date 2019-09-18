@@ -81,10 +81,8 @@
     	submit () {
     		this.$v.$touch();
 
-            const $this = this;
-
-            const users = this.users.filter(user => (user.login === $this.login) && 
-            	(user.password === $this.password));
+            const users = this.users.filter(user => (user.login === this.login) && 
+            	(user.password === this.password));
 
             if(users.length !== 0) {
 	            const role = users[0].role; 
@@ -104,9 +102,8 @@
     	password: {
     		required,
     		checkPassword: function(password) {
-    			const $this = this;
     			const users = this.users.filter(user => user.password === password &&
-    												user.login === $this.login);
+    												user.login === this.login);
     			return (users.length !== 0);
     		}
     	}
